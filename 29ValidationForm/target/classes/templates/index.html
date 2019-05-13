@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <link rel="stylesheet" th:href="@{/css/myapp.css}"/>
+</head>
+<body>
+
+<div th:replace="fg/header :: ajayTop"></div>
+
+<form th:object="${emp}" method="post">
+    <input type="text" th:field="*{id}"/>
+
+    <input type="text" th:field="*{name}"/>
+    <p th:errors="*{name}"/>
+
+    <input type="text" th:field="*{age}"/>
+    <p th:errors="*{age}"/>
+
+    <input type="submit" value="submit">
+</form>
+
+
+<ul th:each="ob : ${ajayemp}">
+    <li th:text="${ob.id}" />
+    <li th:text="${ob.name}" />
+    <li th:text="${ob.age}" />
+</ul>
+
+
+</body>
+</html>
